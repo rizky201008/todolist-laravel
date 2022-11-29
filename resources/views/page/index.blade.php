@@ -1,15 +1,14 @@
 @extends('layouts.user')
 @section('content')
     <div class="flex flex-wrap justify-center w-full">
-        <div class="grid grid-cols-2 gap-2 lg:flex flex-wrap w-full py-3 px-2 lg:px-[15rem]">
-            @if ($todo->count())
+        @if ($todo->count())
+            <div class="grid grid-cols-2 gap-2 lg:flex flex-wrap w-full py-3 px-2 lg:px-[15rem]">
                 @foreach ($todo as $todos)
-                    <div
-                        class="flex flex-nowrap justify-arround w-full px-1 py-3 bg-white rounded-md shadow-lg hover:bg-sky-400 hover:-translate-y-1">
+                    <div class="flex flex-nowrap justify-arround w-full px-3 py-3 bg-slate-100 rounded-md shadow-lg hover:bg-sky-400 hover:-translate-y-1">
                         <div class="flex overflow-hidden lg:overflow-visible w-full">
                             <p class="text-lg lg:text-xl text-black font-bold w-full">{{ $todos->todo }}</p>
                         </div>
-                        <div class="flex">
+                        <div class="flex flex-wrap lg:flex-nowrap justify-end">
                             <a href="/update/{{ $todos->id }}">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                     stroke="currentColor" class="w-6 h-6">
@@ -27,9 +26,10 @@
                         </div>
                     </div>
                 @endforeach
-            @else
-            <p class="text-md lg:text-3xl font-bold text-center w-full py-20">Nothing todo's</p>
-            @endif
-        </div>
+            </div>
+        @else
+            <img src="/static/image/undraw_dreamer_re_9tua.svg" class="w-1/5" alt="Img">
+            <p class="text-md lg:text-3xl font-bold text-center w-full">Nothing todo's</p>
+        @endif
     </div>
 @endsection

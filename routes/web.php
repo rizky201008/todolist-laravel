@@ -22,7 +22,7 @@ Route::group(['middleware'=>"auth"],function () {
     Route::get("/update/{id}", [TodoController::class, "edit"]);
     Route::post("/update/{id}", [TodoController::class, "update"]);
     Route::get("/delete/{id}", [TodoController::class, "destroy"]);
-    Route::post("/logout",[AuthController::class,"logout"]);
+    Route::get("/logout",[AuthController::class,"logout"]);
     Route::post("/search",[TodoController::class,"search"]);
 });
 

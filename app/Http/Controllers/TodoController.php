@@ -109,6 +109,6 @@ class TodoController extends Controller
         }
         $name = $request->todo;
         $todo = Todo::where("todo","like","%$name%")->get();
-        return view("page.index",['title'=>"Homepage","todo"=>$todo]);
+        return view("page.index",['title'=>"Search","todo"=>$todo,"search"=>$request->todo]);
     }
 }
